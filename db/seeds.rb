@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Cat.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('cats')
+
+cat_names = ["ronron", "mistrigrix"]
+
+2.times do |i|
+ Cat.create(
+    name: cat_names[i]
+  )
+end
